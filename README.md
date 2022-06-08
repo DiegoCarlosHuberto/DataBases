@@ -19,44 +19,44 @@ El trabajo realizado para la asignatura de bases de datos nos lo hemos repartido
 
 ## Modelo relacional y normalización:
 
-usuario(id_, premiumId, nombre, apellido, dni, fechaNacimiento, saldo, password);
-    USUARIO_PK(id);
-    USUARIO_FK(premiumId) REFERENCES(premium.id);
+usuario(id_, premiumId, nombre, apellido, dni, fechaNacimiento, saldo, password);<br>
+    USUARIO_PK(id);<br>
+    USUARIO_FK(premiumId) REFERENCES(premium.id);<br>
 
-vetado(idUsuario_);
-    VETADO_PK(idUsuario);
+vetado(idUsuario_);<br>
+    VETADO_PK(idUsuario);<br>
     
-juego(id_, nombre);
-    JUEGO_PK(id);
+juego(id_, nombre);<br>
+    JUEGO_PK(id);<br>
 
-partida(id_, idJuego, idUsuario, apuesta, balance, fechaHora);
-    PARTIDA_PK(id);
-    PARTIDA_FK(idJuego) REFERENCES(juego.id);
-    PARTIDA_FK(idUsuario) REFERENCES(usuario.id);
+partida(id_, idJuego, idUsuario, apuesta, balance, fechaHora);<br>
+    PARTIDA_PK(id);<br>
+    PARTIDA_FK(idJuego) REFERENCES(juego.id);<br>
+    PARTIDA_FK(idUsuario) REFERENCES(usuario.id);<br>
    
  
 Normalization 2NF-3NF:
 
-datosUsuario(dni_, nombre, apellido, fechaNacimiento, saldo);
+datosUsuario(dni_, nombre, apellido, fechaNacimiento, saldo);<br>
     DATOSUSUARIO_PK(dni);
 
-usuario(id_, premiumId,dni);
-    USUARIO_PK(id);
-    USUARIO_FK(premiumId) REFERENCES(premium.id);
-    USUARIO_FK(dni) REFERENCES(datosUsuario.dni);
+usuario(id_, premiumId,dni);<br>
+    USUARIO_PK(id);<br>
+    USUARIO_FK(premiumId) REFERENCES(premium.id);<br>
+    USUARIO_FK(dni) REFERENCES(datosUsuario.dni);<br>
 
-vetado(idUsuario_, veto, comentario);
-    VETADO_PK(idUsuario);
-    VETADO_FK(idUsuario) REFERENCES(usuario.id);
+vetado(idUsuario_, veto, comentario);<br>
+    VETADO_PK(idUsuario);<br>
+    VETADO_FK(idUsuario) REFERENCES(usuario.id);<br>
     
-password(idUsuario_, password);
-    PASSWORD_PK(idUsuario);
-    PASSWORD_FK(idUsuario) REFERENCES(usuario.id);
+password(idUsuario_, password);<br>
+    PASSWORD_PK(idUsuario);<br>
+    PASSWORD_FK(idUsuario) REFERENCES(usuario.id);<br>
 
-juego(id_, nombre);
-    JUEGO_PK(id);
+juego(id_, nombre);<br>
+    JUEGO_PK(id);<br>
 
-partida(id_, idJuego, idUsuario, apuesta, balance, fechaHora);
-    PARTIDA_PK(id);
-    PARTIDA_FK(idJuego) REFERENCES(juego.id);
-    PARTIDA_FK(idUsuario) REFERENCES(usuario.id);
+partida(id_, idJuego, idUsuario, apuesta, balance, fechaHora);<br>
+    PARTIDA_PK(id);<br>
+    PARTIDA_FK(idJuego) REFERENCES(juego.id);<br>
+    PARTIDA_FK(idUsuario) REFERENCES(usuario.id);<br>
