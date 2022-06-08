@@ -19,21 +19,13 @@ El trabajo realizado para la asignatura de bases de datos nos lo hemos repartido
 
 ## Modelo relacional y normalización:
 
-ventajas(id_,cantidadRecuperable, avatares);
-        VENTAJAS_PK(id);
-
-premium(id_, ventajasId, cuota);
-    PREMIUM_PK(id);
-    PREMIUM_FK(ventajasId) REFERENCES(ventajas.id);
-
-usuario(id_, premiumId, nombre, apellido, dni, fechaNacimiento, saldo);
+usuario(id_, premiumId, nombre, apellido, dni, fechaNacimiento, saldo, password);
     USUARIO_PK(id);
     USUARIO_FK(premiumId) REFERENCES(premium.id);
 
-vetado(idUsuario_, veto, comentario);
+vetado(idUsuario_);
     VETADO_PK(idUsuario);
-    VETADO_FK(idUsuario) REFERENCES(usuario.id);
-
+    
 juego(id_, nombre);
     JUEGO_PK(id);
 
@@ -41,8 +33,8 @@ partida(id_, idJuego, idUsuario, apuesta, balance, fechaHora);
     PARTIDA_PK(id);
     PARTIDA_FK(idJuego) REFERENCES(juego.id);
     PARTIDA_FK(idUsuario) REFERENCES(usuario.id);
-
-
+   
+ 
 Normalization 2NF-3NF:
 
 ventajas(id_,cantidadRecuperable, avatares);
