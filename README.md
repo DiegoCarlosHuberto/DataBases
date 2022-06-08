@@ -37,13 +37,6 @@ partida(id_, idJuego, idUsuario, apuesta, balance, fechaHora);
  
 Normalization 2NF-3NF:
 
-ventajas(id_,cantidadRecuperable, avatares);
-        VENTAJAS_PK(id);
-
-premium(id_, ventajasId, cuota);
-    PREMIUM_PK(id);
-    PREMIUM_FK(ventajasId) REFERENCES(ventajas.id)
-
 datosUsuario(dni_, nombre, apellido, fechaNacimiento, saldo);
     DATOSUSUARIO_PK(dni);
 
@@ -55,6 +48,10 @@ usuario(id_, premiumId,dni);
 vetado(idUsuario_, veto, comentario);
     VETADO_PK(idUsuario);
     VETADO_FK(idUsuario) REFERENCES(usuario.id);
+    
+password(idUsuario_, password);
+    PASSWORD_PK(idUsuario);
+    PASSWORD_FK(idUsuario) REFERENCES(usuario.id);
 
 juego(id_, nombre);
     JUEGO_PK(id);
